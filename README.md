@@ -73,42 +73,6 @@ export default App;
 
 # Uncomment code lines in App.js to see light effect
 
-# Update App.js file with code below
+# Update App.js file
 
-import "./App.css";<br/>
-import { Canvas } from "@react-three/fiber";<br/>
-import Cylinder3d from "./component/Cylinder3d";<br/>
-<br/>
-function App() {<br/>
-  return (<br/>
-    <>
-      <section className='App-header'>
-        {/* Canvas 1 */}<br/>
-        <Canvas><br/>
-          <pointLight position={[10, 10, 10]} /><br/>
-          <ambientLight /><br/>
-          <Cylinder3d position={[-1.2, 0, 0]} /><br/>
-          <Cylinder3d position={[1.2, 0, 0]} />
-        </Canvas><br/>
-<br/>
-        {/* Canvas 2 */}<br/>
-        <Canvas><br/>
-          <pointLight position={[10, 10, 10]} /><br/>
-          <ambientLight intensity={0.5} /><br/>
-          <Cylinder3d position={[-1.2, 0, 0]} wireframe={true} /><br/>
-          <Cylinder3d position={[1.2, 0, 0]} wireframe={true} /><br/>
-        </Canvas>
-<br/>
-        {/* Canvas 3 */}<br/>
-        <Canvas><br/>
-          <pointLight position={[10, 10, 10]} /><br/>
-          <ambientLight color={"red"} /><br/>
-          <Cylinder3d position={[-1.2, 0, 0]} /><br/>
-          <Cylinder3d position={[1.2, 0, 0]} /><br/>
-        </Canvas>
-      </section><br/>
-    </><br/>
-  );<br/>
-}<br/>
-<br/>
-export default App;<br/>
+See Full Tutorial <a href="https://www.copycat.dev/blog/react-three-fiber/">Here</a>
