@@ -8,12 +8,12 @@ cd my-3d-react-app
 npm install three @react-three/fiber
 mkdir src\component
 
-# Create Cylinder3d file and add code lines
+# Create Cylinder3d file
 
 type nul > Cylinder3d.jsx
 type nul > src\component\Cylinder3d.jsx
 
-fill the Cylinder3d.jsx file with following code lines
+# Fill the Cylinder3d.jsx file with following code lines
 import React, { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
  
