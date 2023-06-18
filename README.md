@@ -47,7 +47,6 @@ function Cylinder3d(props) {<br/>
     </mesh><br/>
   );<br/>
 }<br/>
- <br/>
 export default Cylinder3d;<br/>
 
 # Replace App.js with this code lines
@@ -57,15 +56,15 @@ import Cylinder3d from "./component/Cylinder3d";<br/>
  <br/>
 function App() {<br/>
   return (<br/>
-    <><br/>
-      <section className='App-header'><br/>
-        <Canvas><br/>
+    <>
+      <section className='App-header'>
+        <Canvas>
           {/* <pointLight position={[10, 10, 10]} /> */}<br/>
           {/* <ambientLight /> */}<br/>
           <Cylinder3d position={[-1.2, 0, 0]} /><br/>
           <Cylinder3d position={[1.2, 0, 0]} /><br/>
-        </Canvas><br/>
-      </section><br/>
+        </Canvas>
+      </section>
     </><br/>
   );<br/>
 }<br/>
@@ -82,14 +81,14 @@ import Cylinder3d from "./component/Cylinder3d";<br/>
 <br/>
 function App() {<br/>
   return (<br/>
-    <><br/>
-      <section className='App-header'><br/>
+    <>
+      <section className='App-header'>
         {/* Canvas 1 */}<br/>
         <Canvas><br/>
           <pointLight position={[10, 10, 10]} /><br/>
           <ambientLight /><br/>
           <Cylinder3d position={[-1.2, 0, 0]} /><br/>
-          <Cylinder3d position={[1.2, 0, 0]} /><br/>
+          <Cylinder3d position={[1.2, 0, 0]} />
         </Canvas><br/>
 <br/>
         {/* Canvas 2 */}<br/>
@@ -98,7 +97,7 @@ function App() {<br/>
           <ambientLight intensity={0.5} /><br/>
           <Cylinder3d position={[-1.2, 0, 0]} wireframe={true} /><br/>
           <Cylinder3d position={[1.2, 0, 0]} wireframe={true} /><br/>
-        </Canvas><br/>
+        </Canvas>
 <br/>
         {/* Canvas 3 */}<br/>
         <Canvas><br/>
@@ -106,7 +105,7 @@ function App() {<br/>
           <ambientLight color={"red"} /><br/>
           <Cylinder3d position={[-1.2, 0, 0]} /><br/>
           <Cylinder3d position={[1.2, 0, 0]} /><br/>
-        </Canvas><br/>
+        </Canvas>
       </section><br/>
     </><br/>
   );<br/>
