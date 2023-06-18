@@ -75,4 +75,4 @@ export default App;
 
 # Update App.js file
 
-See Full Tutorial <a href="https://www.copycat.dev/blog/react-three-fiber/">Here</a>
+See Full Tutorial <a href="https://www.copycat.dev/blog/react-three-fiber/" target="_blank">Here</a>
