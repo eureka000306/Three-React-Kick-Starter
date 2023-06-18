@@ -50,26 +50,26 @@ function Cylinder3d(props) {<br/>
 export default Cylinder3d;<br/>
 
 # Replace App.js with this code lines
-import "./App.css";<br/>
-import { Canvas } from "@react-three/fiber";<br/>
-import Cylinder3d from "./component/Cylinder3d";<br/>
- <br/>
-function App() {<br/>
-  return (<br/>
+import "./App.css";
+import { Canvas } from "@react-three/fiber";
+import Cylinder3d from "./component/Cylinder3d";
+ 
+function App() {
+  return (
     <>
       <section className='App-header'>
         <Canvas>
-          {/* <pointLight position={[10, 10, 10]} /> */}<br/>
-          {/* <ambientLight /> */}<br/>
-          <Cylinder3d position={[-1.2, 0, 0]} /><br/>
-          <Cylinder3d position={[1.2, 0, 0]} /><br/>
+          {/* <pointLight position={[10, 10, 10]} /> */}
+          {/* <ambientLight /> */}
+          <Cylinder3d position={[-1.2, 0, 0]} />
+          <Cylinder3d position={[1.2, 0, 0]} />
         </Canvas>
       </section>
-    </><br/>
-  );<br/>
-}<br/>
- <br/>
-export default App;<br/>
+    </>
+  );
+}
+ 
+export default App;
 
 # Uncomment code lines in App.js to see light effect
 
