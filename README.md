@@ -1,70 +1,111 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+npx create-react-app my-3d-react-app
+cd my-3d-react-app
 
-## Available Scripts
+# Install Three.js modules
 
-In the project directory, you can run:
+npm install three @react-three/fiber
+mkdir src\component
 
-### `npm start`
+# Create Cylinder3d file and add code lines
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+type nul > Cylinder3d.jsx
+type nul > src\component\Cylinder3d.jsx
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+fill the Cylinder3d.jsx file with following code lines
+import React, { useRef, useState } from "react";
+import { useFrame } from "@react-three/fiber";
+ 
+function Cylinder3d(props) {
+  // This reference gives us direct access to the THREE.Mesh object
+  const ref = useRef();
+  // Hold state for hovered and clicked events
+  const [hovered, hover] = useState(false);
+  const [clicked, click] = useState(false);
+  // Subscribe this component to the render-loop, rotate the mesh every frame
+  useFrame((state, delta) => (ref.current.rotation.x += 0.01));
+  // Return the view, these are regular Threejs elements expressed in JSX
+  return (
+    <mesh
+      {...props}
+      ref={ref}
+      scale={clicked ? 1.5 : 1}
+      onClick={(event) => click(!clicked)}
+      onPointerOver={(event) => hover(true)}
+      onPointerOut={(event) => hover(false)}
+    >
+      <cylinderGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial
+        wireframe={props.wireframe}
+        color={hovered ? "hotpink" : "orange"}
+      />
+    </mesh>
+  );
+}
+ 
+export default Cylinder3d;
 
-### `npm test`
+# Replace App.js with this code lines
+import "./App.css";
+import { Canvas } from "@react-three/fiber";
+import Cylinder3d from "./component/Cylinder3d";
+ 
+function App() {
+  return (
+    <>
+      <section className='App-header'>
+        <Canvas>
+          {/* <pointLight position={[10, 10, 10]} /> */}
+          {/* <ambientLight /> */}
+          <Cylinder3d position={[-1.2, 0, 0]} />
+          <Cylinder3d position={[1.2, 0, 0]} />
+        </Canvas>
+      </section>
+    </>
+  );
+}
+ 
+export default App;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Uncomment code lines in App.js to see light effect
 
-### `npm run build`
+# Update App.js file with code below
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+import "./App.css";
+import { Canvas } from "@react-three/fiber";
+import Cylinder3d from "./component/Cylinder3d";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+function App() {
+  return (
+    <>
+      <section className='App-header'>
+        {/* Canvas 1 */}
+        <Canvas>
+          <pointLight position={[10, 10, 10]} />
+          <ambientLight />
+          <Cylinder3d position={[-1.2, 0, 0]} />
+          <Cylinder3d position={[1.2, 0, 0]} />
+        </Canvas>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        {/* Canvas 2 */}
+        <Canvas>
+          <pointLight position={[10, 10, 10]} />
+          <ambientLight intensity={0.5} />
+          <Cylinder3d position={[-1.2, 0, 0]} wireframe={true} />
+          <Cylinder3d position={[1.2, 0, 0]} wireframe={true} />
+        </Canvas>
 
-### `npm run eject`
+        {/* Canvas 3 */}
+        <Canvas>
+          <pointLight position={[10, 10, 10]} />
+          <ambientLight color={"red"} />
+          <Cylinder3d position={[-1.2, 0, 0]} />
+          <Cylinder3d position={[1.2, 0, 0]} />
+        </Canvas>
+      </section>
+    </>
+  );
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default App;
